@@ -1,0 +1,28 @@
+<!-- templates/index.html -->
+{% extends 'base.html' %}
+
+{% block title %}Administrador de Notas{% endblock %}
+
+{% block content %}
+<div class="text-center mt-5">
+    <img src="{{ url_for('static', filename='unison.png') }}" alt="Logo UNISON" style="max-width: 200px;">
+    <h1 class="mt-3">Administrador de Notas</h1>
+    <a href="{{ url_for('crear_nota') }}" class="btn btn-primary mt-4">Crear nueva nota</a>
+
+    {% if notas %}
+    <div class="mt-5">
+        <h3>Notas guardadas</h3>
+        <ul class="list-group mt-3 text-start">
+            {% for nota in notas %}
+            <li class="list-group-item">
+                <h5>{{ nota.titulo }}</h5>
+                <p>{{ nota.contenido }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% else %}
+    <p class="mt-4">Aún no hay notas creadas.</p>
+    {% endif %}
+</div>
+{% endblock %}

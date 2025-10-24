@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Modificar Nota{% endblock %}
+{% block content %}
+<div class="card shadow-lg">
+    <div class="card-body">
+        <h3 class="card-title mb-4">Modificar Nota</h3>
+        <form method="POST">
+            <div class="mb-3">
+                <label for="titulo" class="form-label">Título</label>
+                <input type="text" class="form-control" id="titulo" name="titulo" value="{{ nota[1] }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="contenido" class="form-label">Contenido</label>
+                <textarea class="form-control" id="contenido" name="contenido" rows="4" required>{{ nota[2] }}</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Modificar</button>
+            <a href="{{ url_for('listar_notas') }}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

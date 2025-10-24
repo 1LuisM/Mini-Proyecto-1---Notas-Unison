@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Eliminar Nota{% endblock %}
+{% block content %}
+<div class="alert alert-warning">
+    <h4>¿Seguro que deseas eliminar esta nota?</h4>
+    <p><strong>{{ nota[1] }}</strong></p>
+    <form method="POST">
+        <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+        <a href="{{ url_for('listar_notas') }}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

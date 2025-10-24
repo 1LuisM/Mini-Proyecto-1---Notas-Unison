@@ -1,0 +1,22 @@
+<!-- templates/crear_nota.html -->
+{% extends 'base.html' %}
+
+{% block title %}Crear Nota{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Crear nueva nota</h2>
+    <form method="post">
+        <div class="mb-3">
+            <label for="titulo" class="form-label">Título</label>
+            <input type="text" class="form-control" id="titulo" name="titulo" required>
+        </div>
+        <div class="mb-3">
+            <label for="contenido" class="form-label">Contenido</label>
+            <textarea class="form-control" id="contenido" name="contenido" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Crear</button>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

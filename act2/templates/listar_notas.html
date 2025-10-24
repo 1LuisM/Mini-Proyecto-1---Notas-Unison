@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Listar Notas{% endblock %}
+{% block content %}
+<h2 class="mb-4">Notas Registradas</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for nota in notas %}
+        <tr>
+            <td>{{ nota[0] }}</td>
+            <td>{{ nota[1] }}</td>
+            <td>
+                <a href="{{ url_for('modificar_nota', id=nota[0]) }}" class="btn btn-warning btn-sm">Modificar</a>
+                <a href="{{ url_for('eliminar_nota', id=nota[0]) }}" class="btn btn-danger btn-sm">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{{ url_for('crear_nota') }}" class="btn btn-primary">Agregar nueva nota</a>
+{% endblock %}
